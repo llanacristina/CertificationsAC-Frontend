@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Collapse } from 'react-bootstrap'; 
+import { Collapse } from 'react-bootstrap';
 
 const SidebarMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); 
@@ -28,7 +28,18 @@ const SidebarMenu: React.FC = () => {
 
   return (
     <div>
-      <button className="btn btn-dark hamburger-btn" onClick={toggleMenu}>
+      <button 
+        className="btn btn-dark hamburger-btn" 
+        onClick={toggleMenu}
+        style={{
+          fontSize: '30px',
+          background: 'transparent',
+          border: 'none',
+          color: '#fff',
+          position: 'relative', 
+          zIndex: 1100,
+        }}
+      >
         &#9776;
       </button>
 
@@ -51,11 +62,11 @@ const SidebarMenu: React.FC = () => {
           font-size: 30px;
           background: transparent;
           border: none;
-          color: #000; 
-          position: fixed;
-          top: 20px;
-          left: 20px;
+          color: #fff;
+          position: relative;
           z-index: 1100;
+          top: 0;
+          left: 0;
         }
 
         .sidebar {
@@ -64,23 +75,21 @@ const SidebarMenu: React.FC = () => {
           left: 0;
           width: 250px;
           height: 100%;
-          background-color: #333;
+          background-color: #007bff;
           color: white;
           padding-top: 30px;
           transition: transform 0.3s ease;
           z-index: 999;
-          transform: translateX(-100%); 
-          padding-top: 20px; 
-
+          transform: translateX(-100%);
         }
 
         .sidebar.open {
-          transform: translateX(0); 
+          transform: translateX(0);
         }
 
         .sidebar-content {
           padding: 20px;
-           margin-top: 50px; 
+          margin-top: 50px;
         }
 
         .user-info p {
